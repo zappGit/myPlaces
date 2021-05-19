@@ -22,17 +22,14 @@ class MainViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        var configuration = cell.defaultContentConfiguration()
-        configuration.text = coctails[indexPath.row]
-        configuration.image = UIImage(named: coctails[indexPath.row])
-        configuration.textProperties.numberOfLines = 0
-        configuration.imageProperties.cornerRadius = cell.frame.size.height / 2
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
        
-        
-        cell.contentConfiguration = configuration
+        cell.nameLabel.text = coctails[indexPath.row]
+        cell.imageOfPlace.image = UIImage(named: coctails[indexPath.row])
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
+        cell.imageOfPlace.clipsToBounds = true
+    
         
         
         return cell
