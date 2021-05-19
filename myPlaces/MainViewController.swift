@@ -28,6 +28,9 @@ class MainViewController: UITableViewController {
         configuration.text = coctails[indexPath.row]
         configuration.image = UIImage(named: coctails[indexPath.row])
         configuration.textProperties.numberOfLines = 0
+        configuration.imageProperties.cornerRadius = cell.frame.size.height / 2
+        
+       
         
         cell.contentConfiguration = configuration
         
@@ -35,8 +38,11 @@ class MainViewController: UITableViewController {
         return cell
     }
     
-    
-    
+    // MARK: - Table view delegate
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+
     /*
      // MARK: - Navigation
      

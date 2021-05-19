@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--BAR CARD-->
         <scene sceneID="iUn-tq-wQV">
             <objects>
                 <tableViewController id="bJe-PR-cJ7" customClass="MainViewController" customModule="myPlaces" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="bJe-PR-cJ7" id="BA2-87-B0m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="dy5-ET-pxp"/>
+                    <navigationItem key="navigationItem" title="BAR CARD" id="dy5-ET-pxp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oek-12-vmE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,6 +43,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M7Z-XG-lPI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="bJe-PR-cJ7" kind="relationship" relationship="rootViewController" id="3rE-X1-NFn"/>
