@@ -9,7 +9,7 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
     
-    var curentCoctail: Coctail?
+    var curentCoctail: Coctail!
     
     var imageIsChanged = false
     
@@ -18,12 +18,15 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet weak var coctailName: UITextField!
     @IBOutlet weak var coctailType: UITextField!
     @IBOutlet weak var ingridients: UITextField!
+    @IBOutlet weak var ratingControl: RatingControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+       
         saveButton.isEnabled = false
         coctailName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         setupEditScreen()
@@ -70,7 +73,8 @@ class NewPlaceViewController: UITableViewController {
         let newCoctail = Coctail(name: coctailName.text!,
                                  type: coctailType.text,
                                  ingridients: ingridients.text,
-                                 imageData: imageData)
+                                 imageData: imageData,
+                                 rating: Double(ratingControl.rating))
         
         if curentCoctail != nil {
             try! realm.write {
@@ -78,6 +82,7 @@ class NewPlaceViewController: UITableViewController {
                 curentCoctail?.type = newCoctail.type
                 curentCoctail?.ingridients = newCoctail.ingridients
                 curentCoctail?.imageData = newCoctail.imageData
+                curentCoctail?.rating = newCoctail.rating
             }
             
         } else {
@@ -98,6 +103,7 @@ class NewPlaceViewController: UITableViewController {
             coctailName.text = curentCoctail?.name
             coctailType.text = curentCoctail?.type
             ingridients.text = curentCoctail?.ingridients
+            ratingControl.rating = Int(curentCoctail.rating)
             
         }
     }
